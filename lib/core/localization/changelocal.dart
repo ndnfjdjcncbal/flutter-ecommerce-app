@@ -1,9 +1,9 @@
+import 'package:ecommerce/core/services/Mysevice.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 
-import '../../view/scren/Thems.dart';
-import '../servises/Mysevice.dart';
+import '../../view/Thems.dart';
 
 class Changelocal extends GetxController {
   Locale? local;

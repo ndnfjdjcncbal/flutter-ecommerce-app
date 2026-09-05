@@ -1,8 +1,8 @@
-import 'package:ecommerce/core/counstant/colore.dart';
+import 'package:ecommerce/core/constants/colore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../controller/onboarding/onboarding_controller.dart';
+import '../../controllers/onboarding/onboarding_controller.dart';
 
 class onboarding extends StatelessWidget {
   @override
@@ -76,7 +76,7 @@ class onboarding extends StatelessWidget {
                 onPressed: () {
                   con.updatepage1();
                 },
-                child: Text("Next"),
+                child: Text("8".tr),
               ),
             ),
             SizedBox(height: 50),

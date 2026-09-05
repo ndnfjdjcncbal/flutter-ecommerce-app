@@ -6,9 +6,9 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/src/extension_instance.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:get/get_state_manager/src/simple/get_state.dart';
-
-import '../../controller/Search/Search_controller.dart';
-import '../../core/counstant/colore.dart';
+import '../../controllers/Search/Search_controller.dart';
+import '../../core/classes/handlingdataview.dart';
+import '../../core/constants/colore.dart';
 import 'materialbutton.dart';
 
 class SearchPage extends StatelessWidget {
@@ -93,265 +93,274 @@ class SearchPage extends StatelessWidget {
                                   backgroundColor: AppColors.white,
                                   context: Get.context!,
                                   builder: (context) {
-                                    return Container(
-                                      width: double.infinity,
-                                      padding: EdgeInsets.all(5),
-                                      child: GetBuilder<SearchControllerimp>(
-                                        builder: (controllerfilter) => Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            SizedBox(height: 8),
-                                            Center(child: Text("Filter By")),
+                                    return Handlingdataview(
+                                      statusRequest: controller.statusRequest,
+                                      widget1: const Center(
+                                        child: CircularProgressIndicator(),
+                                      ),
+                                      widget: Container(
+                                        width: double.infinity,
+                                        padding: EdgeInsets.all(5),
+                                        child: GetBuilder<SearchControllerimp>(
+                                          builder: (controllerfilter) => Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              SizedBox(height: 8),
+                                              Center(child: Text("Filter By")),
 
-                                            SizedBox(height: 24),
-                                            Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Text("Price"),
-                                                Text(
-                                                  "${controllerfilter.values.start.toInt()} -\$80",
-                                                  style: TextStyle(
-                                                    color: AppColors.grey,
+                                              SizedBox(height: 24),
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Text("Price"),
+                                                  Text(
+                                                    "${controllerfilter.values.start.toInt()} -\$80",
+                                                    style: TextStyle(
+                                                      color: AppColors.grey,
+                                                    ),
                                                   ),
-                                                ),
-                                              ],
-                                            ),
-                                            SizedBox(height: 0),
-                                            SliderTheme(
-                                              data: SliderTheme.of(context)
-                                                  .copyWith(
-                                                    activeTrackColor:
-                                                        AppColors.primary,
-                                                    inactiveTrackColor:
-                                                        AppColors
-                                                            .backgroundGrey,
-                                                    trackHeight: 2,
-                                                    rangeThumbShape:
-                                                        BorderedRangeThumbShape(
-                                                          thumbRadius: 8,
-                                                          borderWidth: 3.5,
-                                                          borderColor:
-                                                              AppColors.primary,
-                                                          fillColor:
-                                                              Colors.white,
-                                                        ),
-                                                    overlayShape:
-                                                        const RoundSliderOverlayShape(
-                                                          overlayRadius: 5,
-                                                        ),
-                                                    valueIndicatorStrokeColor:
-                                                        AppColors.white,
-                                                    valueIndicatorColor:
-                                                        AppColors.primary,
-                                                  ),
-                                              child: RangeSlider(
-                                                values: controllerfilter.values,
-                                                min: 0,
-                                                max: 80,
-                                                onChanged: (newValues) {
-                                                  controllerfilter.updatevalues(
-                                                    newValues,
-                                                  );
-                                                },
+                                                ],
                                               ),
-                                            ),
-                                            SizedBox(height: 20),
-
-                                            Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Text("color"),
-                                                Text(
-                                                  controllerfilter
-                                                      .colorname[controllerfilter
-                                                      .isselected],
-
-                                                  style: TextStyle(
-                                                    color: AppColors.black,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            SizedBox(height: 16),
-                                            Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.spaceAround,
-                                              children: [
-                                                ...List.generate(
-                                                  controllerfilter
-                                                      .choseselec
-                                                      .length,
-                                                  (int index) {
-                                                    return Container(
-                                                      margin:
-                                                          const EdgeInsets.only(
-                                                            right: 31.3,
+                                              SizedBox(height: 0),
+                                              SliderTheme(
+                                                data: SliderTheme.of(context)
+                                                    .copyWith(
+                                                      activeTrackColor:
+                                                          AppColors.primary,
+                                                      inactiveTrackColor:
+                                                          AppColors
+                                                              .backgroundGrey,
+                                                      trackHeight: 2,
+                                                      rangeThumbShape:
+                                                          BorderedRangeThumbShape(
+                                                            thumbRadius: 8,
+                                                            borderWidth: 3.5,
+                                                            borderColor:
+                                                                AppColors
+                                                                    .primary,
+                                                            fillColor:
+                                                                Colors.white,
                                                           ),
+                                                      overlayShape:
+                                                          const RoundSliderOverlayShape(
+                                                            overlayRadius: 5,
+                                                          ),
+                                                      valueIndicatorStrokeColor:
+                                                          AppColors.white,
+                                                      valueIndicatorColor:
+                                                          AppColors.primary,
+                                                    ),
+                                                child: RangeSlider(
+                                                  values:
+                                                      controllerfilter.values,
+                                                  min: 0,
+                                                  max: 1000,
+                                                  onChanged: (newValues) {
+                                                    controllerfilter
+                                                        .updatevalues(
+                                                          newValues,
+                                                        );
+                                                  },
+                                                ),
+                                              ),
+                                              SizedBox(height: 20),
 
-                                                      width: 25,
-                                                      height: 25,
-                                                      decoration: BoxDecoration(
-                                                        color: controllerfilter
-                                                            .viewcolor(
-                                                              controllerfilter
-                                                                  .choseselec[index]
-                                                                  .itemsColor!,
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [Text("color")],
+                                              ),
+                                              SizedBox(height: 16),
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                children: [
+                                                  ...List.generate(
+                                                    controllerfilter
+                                                        .colors
+                                                        .length,
+                                                    (int index) {
+                                                      return Container(
+                                                        margin:
+                                                            const EdgeInsets.only(
+                                                              right: 40,
                                                             ),
-                                                        shape: BoxShape.circle,
-                                                      ),
 
-                                                      child: InkWell(
-                                                        splashColor:
-                                                            Colors.transparent,
-                                                        highlightColor:
-                                                            Colors.transparent,
-                                                        splashFactory: NoSplash
-                                                            .splashFactory,
-                                                        canRequestFocus: false,
-                                                        autofocus: false,
-                                                        enableFeedback: true,
-                                                        onTap: () {
-                                                          controllerfilter
-                                                              .chnageselect(
-                                                                index,
-                                                              );
-                                                        },
-                                                        child: Stack(
-                                                          alignment:
-                                                              Alignment.center,
+                                                        width: 25,
+                                                        height: 25,
+                                                        decoration: BoxDecoration(
+                                                          color: controllerfilter
+                                                              .viewcolor(
+                                                                controllerfilter
+                                                                    .colorname[index],
+                                                              ),
+                                                          shape:
+                                                              BoxShape.circle,
+                                                        ),
+
+                                                        child: InkWell(
+                                                          splashColor: Colors
+                                                              .transparent,
+                                                          highlightColor: Colors
+                                                              .transparent,
+                                                          splashFactory: NoSplash
+                                                              .splashFactory,
+                                                          canRequestFocus:
+                                                              false,
+                                                          autofocus: false,
+                                                          enableFeedback: true,
+                                                          onTap: () {
+                                                            controllerfilter
+                                                                .chnageselect(
+                                                                  index,
+                                                                );
+                                                          },
+                                                          child: Stack(
+                                                            alignment: Alignment
+                                                                .center,
+                                                            children: [
+                                                              Container(
+                                                                width: 25,
+                                                                height: 25,
+                                                              ),
+
+                                                              controllerfilter
+                                                                          .isselected ==
+                                                                      index
+                                                                  ? Icon(
+                                                                      Icons
+                                                                          .check,
+                                                                      color: Colors
+                                                                          .white,
+                                                                      size: 16,
+                                                                      weight:
+                                                                          50.5,
+                                                                    )
+                                                                  : Container(),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      );
+                                                    },
+                                                  ),
+                                                ],
+                                              ),
+                                              SizedBox(height: 28),
+
+                                              Text("Location"),
+                                              SizedBox(height: 14),
+                                              Expanded(
+                                                child: Row(
+                                                  children: [
+                                                    ...List.generate(
+                                                      growable: true,
+
+                                                      3,
+                                                      (index) => Expanded(
+                                                        child: Row(
                                                           children: [
-                                                            Container(
-                                                              width: 25,
-                                                              height: 25,
-                                                              decoration: BoxDecoration(
-                                                                color: controllerfilter
-                                                                    .colors[index],
-                                                                shape: BoxShape
-                                                                    .circle,
+                                                            InkWell(
+                                                              splashColor: Colors
+                                                                  .transparent,
+                                                              highlightColor:
+                                                                  Colors
+                                                                      .transparent,
+                                                              splashFactory:
+                                                                  NoSplash
+                                                                      .splashFactory,
+                                                              onTap: () {
+                                                                controllerfilter
+                                                                    .chnagelocation(
+                                                                      index,
+                                                                    );
+                                                              },
+                                                              child: Container(
+                                                                margin:
+                                                                    EdgeInsets.symmetric(
+                                                                      horizontal:
+                                                                          5,
+                                                                    ),
+                                                                padding:
+                                                                    EdgeInsets.symmetric(
+                                                                      vertical:
+                                                                          8,
+                                                                      horizontal:
+                                                                          5,
+                                                                    ),
+                                                                height: 50,
+                                                                width: 110,
+                                                                decoration: BoxDecoration(
+                                                                  borderRadius:
+                                                                      BorderRadius.circular(
+                                                                        13,
+                                                                      ),
+                                                                  color:
+                                                                      controllerfilter
+                                                                              .locationselected ==
+                                                                          index
+                                                                      ? AppColors
+                                                                            .primary
+                                                                      : AppColors
+                                                                            .backgroundGrey,
+                                                                ),
+                                                                child: Text(
+                                                                  controllerfilter
+                                                                      .choseselec[index]
+                                                                      .itemscolorLocationar!,
+                                                                  textAlign:
+                                                                      TextAlign
+                                                                          .center,
+                                                                  style: TextStyle(
+                                                                    color:
+                                                                        controllerfilter.locationselected ==
+                                                                            index
+                                                                        ? AppColors
+                                                                              .white
+                                                                        : AppColors
+                                                                              .primary,
+                                                                  ),
+                                                                ),
                                                               ),
                                                             ),
-
-                                                            controllerfilter
-                                                                        .isselected ==
-                                                                    index
-                                                                ? Icon(
-                                                                    Icons.check,
-                                                                    color: Colors
-                                                                        .white,
-                                                                    size: 16,
-                                                                    weight:
-                                                                        50.5,
-                                                                  )
-                                                                : Container(),
                                                           ],
                                                         ),
                                                       ),
-                                                    );
-                                                  },
-                                                ),
-                                              ],
-                                            ),
-                                            SizedBox(height: 28),
-
-                                            Text("Location"),
-                                            SizedBox(height: 14),
-
-                                            Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                ...List.generate(
-                                                  controllerfilter
-                                                          .choseselec
-                                                          .length -
-                                                      2,
-                                                  (index) => InkWell(
-                                                    splashColor:
-                                                        Colors.transparent,
-                                                    highlightColor:
-                                                        Colors.transparent,
-                                                    splashFactory:
-                                                        NoSplash.splashFactory,
-                                                    onTap: () {
-                                                      controllerfilter
-                                                          .chnagelocation(
-                                                            index,
-                                                          );
-                                                    },
-                                                    child: Container(
-                                                      padding:
-                                                          EdgeInsets.symmetric(
-                                                            vertical: 10,
-                                                            horizontal: 5,
-                                                          ),
-                                                      height: 50,
-                                                      width: 120,
-                                                      decoration: BoxDecoration(
-                                                        borderRadius:
-                                                            BorderRadius.circular(
-                                                              13,
-                                                            ),
-                                                        color:
-                                                            controllerfilter
-                                                                    .locationselected ==
-                                                                index
-                                                            ? AppColors.primary
-                                                            : AppColors
-                                                                  .backgroundGrey,
-                                                      ),
-                                                      child: Text(
-                                                        controllerfilter
-                                                            .choseselec[index]
-                                                            .itemsLocation!,
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                        style: TextStyle(
-                                                          color:
-                                                              controllerfilter
-                                                                      .locationselected ==
-                                                                  index
-                                                              ? AppColors.white
-                                                              : AppColors
-                                                                    .primary,
-                                                        ),
-                                                      ),
                                                     ),
-                                                  ),
+                                                  ],
                                                 ),
-                                              ],
-                                            ),
-                                            SizedBox(height: 32),
+                                              ),
 
-                                            Materialbutton(
-                                              text: 'APPLY Filter',
-                                              onPressed: () {
-                                                controllerfilter.FilterByF(
-                                                  controllerfilter
-                                                      .choseselec[controllerfilter
-                                                          .isselected]
-                                                      .itemsColor!,
-                                                  controllerfilter
-                                                      .choseselec[controllerfilter
-                                                          .locationselected]
-                                                      .itemsLocation!,
-                                                  controllerfilter.values.start
-                                                      .toString(),
-                                                  controllerfilter.values.end
-                                                      .toString(),
-                                                  controllerfilter
-                                                      .searchController
-                                                      .text,
-                                                );
-                                              },
-                                            ),
-                                          ],
+                                              SizedBox(height: 32),
+
+                                              Materialbutton(
+                                                text: 'APPLY Filter',
+                                                onPressed: () {
+                                                  controllerfilter.FilterByF(
+                                                    controllerfilter
+                                                        .colorname[controllerfilter
+                                                        .isselected],
+
+                                                    controllerfilter
+                                                        .values
+                                                        .start
+                                                        .toString(),
+                                                    controllerfilter.values.end
+                                                        .toString(),
+                                                    controllerfilter
+                                                        .searchController
+                                                        .text,
+                                                  );
+                                                },
+                                              ),
+                                            ],
+                                          ),
                                         ),
                                       ),
                                     );

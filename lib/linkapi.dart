@@ -1,5 +1,5 @@
 class Linkapi {
-  static const String Api = "http://20.0.109.146/ecommerceapp";
+  static const String Api = "http://20.0.7.207/ecommerceapp";
 
   ////////////////////////auth//////////////////////////////
   static const String signupl = "$Api/auth/signin.php";
@@ -15,6 +15,8 @@ class Linkapi {
   static const String resetpass = "$Api/auth/forgetpassword/resetpassword.php";
   static const String banner = "$Api/home/getbanner.php";
   static const String items = "$Api/home/getitems.php";
+  static const String itemsForCategory =
+      "$Api/itemsfor_category/items_Category.php";
 
   static const String rimages = "$Api/image";
   static const String homecategoty = "$Api/home/getcategory.php";
@@ -59,4 +61,11 @@ class Linkapi {
 
   static const String getnumbercart =
       "$Api/getinformationcard/getinformation.php";
+  ////////////////////////Orders//////////////////////////////
+  static const String getorders = "$Api/orders/getorder.php";
+  ////////////////////////Profile////////////////////////////
+  static const String updateprofiel = "$Api/profile/update_profile.php";
+  static const String updateImage = "$Api/profile/update_image.php";
+  static const String getProfile = "$Api/profile/get_profile.php";
+  static const String changePassword = "$Api/profile/change_password.php";
 }

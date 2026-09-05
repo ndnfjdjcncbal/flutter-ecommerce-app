@@ -1,27 +1,36 @@
 import 'package:ecommerce/core/classes/handlingdataview.dart';
-import 'package:ecommerce/core/counstant/colore.dart';
+import 'package:ecommerce/core/constants/colore.dart';
 import 'package:ecommerce/core/function/authvalidator/validator.dart';
+import 'package:ecommerce/core/services/Mysevice.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
-import '../../controller/auth/login_controller.dart';
-import '../../core/servises/Mysevice.dart';
-import '../widget/widgetauth/signinwith.dart';
-import '../widget/widgetauth/textfieldauth.dart';
+import '../../controllers/auth/login_controller.dart';
+import '../widget/auth/signinwith.dart';
+import '../widget/auth/textfieldauth.dart';
 
 class Login extends StatelessWidget {
-  final myservice = Get.find<Myservice>();
-  late String? sharedPrefLang = myservice.sharedPreferences.getString("lang");
+  const Login({super.key});
 
+  @override
   Widget build(BuildContext context) {
-    loginimp controlle0 = Get.put(loginimp());
+    if (!Get.isRegistered<LoginControllerImp>()) {
+      Get.put(LoginControllerImp());
+    }
+
+    final myservice = Get.find<Myservice>();
+    final sharedPrefLang = myservice.sharedPreferences.getString('lang');
+    final controller = Get.find<LoginControllerImp>();
+
     return Scaffold(
-      body: GetBuilder<loginimp>(
-        builder: (controller) => Handlingdataview(
-          statusRequest: controller.statusRequest,
+      body: GetBuilder<LoginControllerImp>(
+        builder: (controllerBuilder) => Handlingdataview(
+          statusRequest: controllerBuilder.statusRequest,
+          widget1: _buildLoadingState(sharedPrefLang),
           widget: Form(
-            key: controller.formstatelogin,
+            key: controllerBuilder.loginFormKey,
             child: ListView(
               padding: const EdgeInsets.all(14),
               children: [
@@ -31,145 +40,49 @@ class Login extends StatelessWidget {
                       : CrossAxisAlignment.start,
                   children: [
                     const SizedBox(height: 80),
-                    Text(
-                      "11".tr,
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 25,
-                      ),
-                    ),
+                    _buildTitle(),
                     const SizedBox(height: 10),
-                    const Text(
-                      "Please login with registired account",
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontWeight: FontWeight.w300,
-                      ),
-                    ),
+                    _buildSubtitle(),
                     const SizedBox(height: 37),
-                    const Text(
-                      "Email or phone number",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 13,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                    _buildLabel('Email or phone number'),
                     const SizedBox(height: 10),
                     textfieldauth(
-                      hintText: "Enter Your email or phone number",
+                      hintText: '14'.tr,
                       suffixIcon: const Icon(Icons.email_outlined),
-                      validator: (val) => validinput(val!, 13, 40, "email"),
-                      controller: controller.email,
+                      validator: (val) => validinput(val!, 13, 40, 'email'),
+                      controller: controllerBuilder.email,
                     ),
                     const SizedBox(height: 15),
-                    const Text(
-                      "Password",
-                      style: TextStyle(
-                        fontSize: 13,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                    _buildLabel('Password'),
                     const SizedBox(height: 16),
-
                     textfieldauth(
-                      hintText: "Create your password",
-                      suffixIcon: Icon(Icons.lock_outlined),
-                      validator: (val) => validinput(val!, 8, 30, "15".tr),
-                      controller: controller.password,
-                      obscureText: controller.isshowpass,
-                      onTap: () {
-                        controller.change();
-                      },
+                      hintText: '16'.tr,
+                      suffixIcon: const Icon(Icons.lock_outlined),
+                      validator: (val) => validinput(val!, 8, 30, '15'.tr),
+                      controller: controllerBuilder.password,
+                      obscureText: controllerBuilder.isShowPassword,
+                      onTap: controllerBuilder.togglePasswordVisibility,
                     ),
                     const SizedBox(height: 13),
-                    Row(
-                      children: [
-                        MaterialButton(
-                          onPressed: () {
-                            controller.forgetpassword();
-                          },
-                          child: const Text(
-                            "? Forget Password",
-                            style: TextStyle(
-                              fontSize: 13,
-                              fontWeight: FontWeight.bold,
-                              color: AppColors.primary,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                    _buildForgotPasswordButton(controllerBuilder),
                     const SizedBox(height: 20),
-                    Center(
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 110,
-                          vertical: 5,
-                        ),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: AppColors.primary,
-                        ),
-                        child: MaterialButton(
-                          onPressed: () {
-                            controller.loginf();
-                          },
-                          child: Text(
-                            '9'.tr,
-                            style: TextStyle(color: AppColors.white),
-                          ),
-                        ),
-                      ),
-                    ),
+                    _buildLoginButton(controllerBuilder),
                     const SizedBox(height: 19),
-                    Center(
-                      child: Text(
-                        "18".tr,
-                        style: TextStyle(
-                          fontWeight: FontWeight.w300,
-                          fontSize: 12.2,
-                        ),
-                      ),
-                    ),
+                    _buildDividerText('18'.tr),
                     const SizedBox(height: 12),
                     signiniwth(
                       icon: const FaIcon(FontAwesomeIcons.google),
-                      text: "19".tr,
-                      onPressed: () {
-                        controller.signInWithGoogle();
-                      },
+                      text: '19'.tr,
+                      onPressed: controllerBuilder.signInWithGoogle,
                     ),
                     const SizedBox(height: 12),
                     signiniwth(
                       icon: const FaIcon(FontAwesomeIcons.facebook),
-                      text: "20".tr,
+                      text: '20'.tr,
                       onPressed: () {},
                     ),
                     const SizedBox(height: 20),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "21".tr,
-                          style: TextStyle(color: Colors.grey, fontSize: 13),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            controller.gosignup();
-                          },
-                          child: Text(
-                            "22".tr,
-                            style: TextStyle(
-                              color: AppColors.primary,
-                              fontSize: 13,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                    _buildSignupPrompt(controllerBuilder),
                   ],
                 ),
               ],
@@ -177,6 +90,164 @@ class Login extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildLoadingState(String? sharedPrefLang) {
+    return Skeletonizer(
+      enabled: true,
+      child: Form(
+        child: ListView(
+          padding: const EdgeInsets.all(14),
+          children: [
+            Column(
+              crossAxisAlignment: sharedPrefLang == 'ar'
+                  ? CrossAxisAlignment.end
+                  : CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 80),
+                Bone.text(width: 150),
+                const SizedBox(height: 10),
+                const Bone.text(words: 6),
+                const SizedBox(height: 37),
+                Bone.text(width: 150),
+                const SizedBox(height: 10),
+                Bone(
+                  height: 55,
+                  width: double.infinity,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                const SizedBox(height: 15),
+                Bone.text(width: 70),
+                const SizedBox(height: 16),
+                Bone(
+                  height: 55,
+                  width: double.infinity,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                const SizedBox(height: 13),
+                Bone.text(width: 120),
+                const SizedBox(height: 20),
+                Center(
+                  child: Bone(
+                    width: 220,
+                    height: 55,
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                ),
+                const SizedBox(height: 19),
+                Center(child: Bone.text(width: 170)),
+                const SizedBox(height: 12),
+                Bone(
+                  width: double.infinity,
+                  height: 50,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                const SizedBox(height: 12),
+                Bone(
+                  width: double.infinity,
+                  height: 50,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                const SizedBox(height: 20),
+                Center(child: Bone.text(width: 220)),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildTitle() {
+    return Text(
+      '11'.tr,
+      style: const TextStyle(
+        color: Colors.black,
+        fontWeight: FontWeight.bold,
+        fontSize: 25,
+      ),
+    );
+  }
+
+  Widget _buildSubtitle() {
+    return const Text(
+      'Please login with registered account',
+      style: TextStyle(color: Colors.grey, fontWeight: FontWeight.w300),
+    );
+  }
+
+  Widget _buildLabel(String text) {
+    return Text(
+      text,
+      style: const TextStyle(
+        color: Colors.black,
+        fontSize: 13,
+        fontWeight: FontWeight.bold,
+      ),
+    );
+  }
+
+  Widget _buildForgotPasswordButton(LoginControllerImp controller) {
+    return Row(
+      children: [
+        MaterialButton(
+          onPressed: controller.forgetpassword,
+          child: const Text(
+            '? Forget Password',
+            style: TextStyle(
+              fontSize: 13,
+              fontWeight: FontWeight.bold,
+              color: AppColors.primary,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildLoginButton(LoginControllerImp controller) {
+    return Center(
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 110, vertical: 5),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(30),
+          color: AppColors.primary,
+        ),
+        child: MaterialButton(
+          onPressed: controller.loginf,
+          child: Text('9'.tr, style: const TextStyle(color: AppColors.white)),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildDividerText(String text) {
+    return Center(
+      child: Text(
+        text,
+        style: const TextStyle(fontWeight: FontWeight.w300, fontSize: 12.2),
+      ),
+    );
+  }
+
+  Widget _buildSignupPrompt(LoginControllerImp controller) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text('21'.tr, style: const TextStyle(color: Colors.grey, fontSize: 13)),
+        GestureDetector(
+          onTap: controller.gosignup,
+          child: Text(
+            '22'.tr,
+            style: const TextStyle(
+              color: AppColors.primary,
+              fontSize: 13,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

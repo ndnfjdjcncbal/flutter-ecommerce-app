@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:ecommerce/core/servises/Mysevice.dart';
+import 'package:ecommerce/core/services/Mysevice.dart';
 import 'package:ecommerce/linkapi.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/src/extension_instance.dart';
@@ -33,11 +33,8 @@ Future<String> stripeIntegeration(
     throw Exception(data['error'] ?? 'Payment request failed');
   }
 }
-/////////////////////pay faster///////////////////////////////////////
-///import 'dart:convert';
 
-// ignore: non_constant_identifier_names
-Future<dynamic> getclient_secret_onpayfaster(
+getclient_secret_onpayfaster(
   String currency,
   String paymentMethodId,
   String amount,
@@ -57,7 +54,7 @@ Future<dynamic> getclient_secret_onpayfaster(
 
   if (response.statusCode == 200 || response.statusCode == 201) {
     print(response.statusCode);
-
+    return data;
   } else {
     throw Exception(data['error'] ?? 'Payment request failed');
   }

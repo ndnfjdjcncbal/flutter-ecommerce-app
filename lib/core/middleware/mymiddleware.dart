@@ -1,12 +1,10 @@
+import 'package:ecommerce/core/services/Mysevice.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/src/extension_instance.dart';
 import 'package:get/get_navigation/src/routes/route_middleware.dart';
 
 import '../../view/approute.dart';
-import '../classes/Approute.dart';
-import '../servises/Mysevice.dart';
-
 
 class MyMiddleWare extends GetMiddleware {
   @override
@@ -24,17 +22,10 @@ class MyMiddleWare extends GetMiddleware {
 
     if (step == "1") {
       return const RouteSettings(name: approute.homepage0);
-    }else if(step =='2'){
+    } else if (step == '2') {
       return const RouteSettings(name: approute.login);
-
-
-
-    }else{
-    return const RouteSettings(name: approute.language);
-
+    } else {
+      return const RouteSettings(name: approute.language);
     }
-
-
-
   }
 }

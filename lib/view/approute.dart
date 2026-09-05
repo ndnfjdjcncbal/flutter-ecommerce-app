@@ -17,6 +17,7 @@ class approute {
   static const String latestFavorite = "/LatestFavorite";
   static const String mostPopularFavorite = "/MostPopularFavorite";
   static const String cheapestFavorite = "/CheapestFavorite";
+  static const String getitems_forCategory = "/getitems_forCategory";
 
   static const String cart = "/CartPage";
   static const String Mappage = "/mappage";
@@ -24,4 +25,9 @@ class approute {
   static const String addressPage2 = "/AddressPage2";
   static const String paymentandviewaddres = "/PaymentPage";
   static const String allitem = "/allitems";
+  static const String notifications = "/Notifications";
+  static const String settings = "/SettingsPage";
+  static const String editProfile = "/editProfile";
+  static const String changePassword = "/changePassword";
+  static const String languageSettings = "/languageSettings";
 }
