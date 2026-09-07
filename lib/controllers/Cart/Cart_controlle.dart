@@ -176,21 +176,19 @@ class Cartcontrollerump extends CartControlle {
 
     print(response['data'].runtimeType);
 
-    print(response['data']['data'].runtimeType);
+    print(response['data'].runtimeType);
     if (response['status'] == "success") {
       statusRequest = StatusRequest.success;
 
       update();
 
       discount =
-          double.tryParse(
-            response['data']['data'][0]['coupon_discount'].toString(),
-          ) ??
+          double.tryParse(response['data'][0]['coupon_discount'].toString()) ??
           0;
 
       discount = countprice * (discount.toDouble() / 100.0);
       finalprice = countprice - discount;
-      id = (response['data']['data'][0]['cupon_id']).toString();
+      id = (response['data'][0]['cupon_id']).toString();
     } else {
       statusRequest = StatusRequest.failure;
     }

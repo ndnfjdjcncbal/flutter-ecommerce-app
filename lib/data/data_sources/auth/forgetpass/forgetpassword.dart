@@ -1,5 +1,5 @@
 import 'package:ecommerce/core/classes/crud.dart';
-import 'package:ecommerce/linkapi.dart';
+import 'package:ecommerce/core/constants/app_links/linkapi.dart';
 
 class forgetpassdata{
 

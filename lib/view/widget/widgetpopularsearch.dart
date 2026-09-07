@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../controllers/Search/Search_controller.dart';
-import '../../linkapi.dart';
+import 'package:ecommerce/core/constants/app_links/linkapi.dart';
 
 class popularsearch1 extends StatelessWidget {
   const popularsearch1({super.key});

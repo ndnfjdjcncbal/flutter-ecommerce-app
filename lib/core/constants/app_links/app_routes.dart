@@ -1,3 +1,4 @@
+import 'package:ecommerce/core/middleware/mymiddleware.dart';
 import 'package:ecommerce/view/Notifications/Notidication.dart';
 import 'package:ecommerce/view/auth/SignUp.dart';
 import 'package:ecommerce/view/auth/login.dart';
@@ -23,8 +24,6 @@ import 'package:ecommerce/view/settings/settings_page.dart';
 import 'package:ecommerce/view/widget/map_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import 'core/middleware/mymiddleware.dart';
 
 List<GetPage<dynamic>>? routes = [
   GetPage(name: "/", page: () => Language1(), middlewares: [MyMiddleWare()]),

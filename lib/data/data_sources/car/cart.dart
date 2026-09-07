@@ -1,5 +1,5 @@
 import '../../../core/classes/crud.dart';
-import '../../../linkapi.dart';
+import 'package:ecommerce/core/constants/app_links/linkapi.dart';
 
 class Cart {
   crud crud1;

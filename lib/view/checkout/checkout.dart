@@ -1,4 +1,5 @@
 import 'package:ecommerce/core/classes/handlingdataview.dart';
+import 'package:ecommerce/core/constants/app_links/linkapi.dart';
 import 'package:ecommerce/core/services/Mysevice.dart';
 import 'package:ecommerce/view/widget/custom_dropdown_button.dart';
 import 'package:ecommerce/view/widget/paymentmithod.dart';
@@ -11,7 +12,6 @@ import '../../controllers/CheckOut/checkout_controller.dart';
 import '../../controllers/payment_integration/payment_controller.dart';
 import '../../core/classes/statusrequest.dart';
 import '../../core/constants/colore.dart';
-import '../../linkapi.dart';
 import '../staticmapapi.dart';
 
 class PaymentPage extends StatelessWidget {

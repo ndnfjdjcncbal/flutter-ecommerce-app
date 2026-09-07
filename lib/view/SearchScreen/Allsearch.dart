@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 
 import '../../controllers/Search/Search_controller.dart';
 import '../../core/constants/colore.dart';
-import '../../linkapi.dart';
+import 'package:ecommerce/core/constants/app_links/linkapi.dart';
 import '../approute.dart';
 import 'search_loading_grid.dart';
 

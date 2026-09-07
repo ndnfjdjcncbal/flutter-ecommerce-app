@@ -196,7 +196,7 @@ class Login extends StatelessWidget {
     required VoidCallback onPressed,
   }) {
     return Align(
-      alignment: isArabic ? Alignment.centerRight : Alignment.centerLeft,
+      alignment: isArabic ? Alignment.centerLeft : Alignment.centerRight,
       child: MaterialButton(
         onPressed: onPressed,
         child: Text(

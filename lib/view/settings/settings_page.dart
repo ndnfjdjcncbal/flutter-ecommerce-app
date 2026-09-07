@@ -1,4 +1,5 @@
 import 'package:ecommerce/core/constants/colore.dart';
+import 'package:ecommerce/core/localization/changelocal.dart';
 import 'package:ecommerce/view/approute.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -33,7 +34,48 @@ class SettingsPage extends StatelessWidget {
         icon: Icons.language_outlined,
         title: 'Language',
         trailing: 'English',
-        onTap: () => Get.toNamed(approute.language),
+        onTap: () {
+          final controller = Get.find<Changelocal>();
+          Get.defaultDialog(
+            title: 'Language',
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 70),
+                  color: AppColors.primary,
+                  width: double.infinity,
+                  child: MaterialButton(
+                    onPressed: () async {
+                      controller.Changelocalf('ar');
+                      await Get.toNamed(approute.onboarding);
+                    },
+                    child: const Text(
+                      'ar',
+                      style: TextStyle(color: AppColors.white),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 10),
+                Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 70),
+                  color: AppColors.primary,
+                  width: double.infinity,
+                  child: MaterialButton(
+                    onPressed: () async {
+                      controller.Changelocalf('en');
+                      await Get.toNamed(approute.onboarding);
+                    },
+                    child: const Text(
+                      'en',
+                      style: TextStyle(color: AppColors.white),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          );
+        },
       ),
     ];
 

@@ -1,9 +1,9 @@
+import 'package:ecommerce/core/constants/app_links/linkapi.dart';
 import 'package:ecommerce/data/models/favorite/latestfavorite.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:skeletonizer/skeletonizer.dart';
-import '../../../core/classes/handlingdataview.dart';
-import '../../../linkapi.dart';
+import '../../core/classes/handlingdataview.dart';
 import '../../controllers/Cart/favoritecontroler.dart';
 import '../approute.dart';
 

@@ -1,7 +1,7 @@
 import 'package:ecommerce/core/classes/handlingdataview.dart';
+import 'package:ecommerce/core/constants/app_links/linkapi.dart';
 import 'package:ecommerce/core/constants/colore.dart';
 import 'package:ecommerce/data/models/getitems_model/getitems.dart';
-import 'package:ecommerce/linkapi.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

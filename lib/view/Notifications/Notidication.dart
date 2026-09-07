@@ -236,7 +236,6 @@ class Notifications extends StatelessWidget {
             Divider(color: Colors.grey[200], height: 1),
             const SizedBox(height: 12),
 
-            // ---------------- Item 4 ----------------
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

@@ -1,12 +1,12 @@
 import 'package:ecommerce/controllers/Home/homecontroller.dart';
 import 'package:ecommerce/core/classes/handlingdataview.dart';
+import 'package:ecommerce/core/constants/app_links/linkapi.dart';
 import 'package:ecommerce/data/models/getitems_model/getitems.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 import '../core/constants/colore.dart';
-import '../../linkapi.dart';
 import 'approute.dart';
 
 class allitems extends StatelessWidget {
