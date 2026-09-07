@@ -78,11 +78,7 @@ class AddressControllerImp extends AddressController {
   }
 
   String getMapUrl(int index) {
-    const mapUrls = [
-      'https://img.freepik.com/free-vector/city-map-navigation-concept_23-2148293529.jpg',
-      'https://img.freepik.com/free-vector/map-navigation-concept_23-2148293528.jpg',
-      'https://img.freepik.com/free-vector/map-location-isometric-concept_23-2148293530.jpg',
-    ];
+    const mapUrls = ['assets/map1.png', 'assets/map2.png', 'assets/map3.png'];
     return mapUrls[index % mapUrls.length];
   }
 }

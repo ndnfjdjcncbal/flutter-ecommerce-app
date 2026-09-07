@@ -161,12 +161,7 @@ class cheapest extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 3),
-        const Text(
-          'shose',
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
-          style: TextStyle(color: Colors.grey, fontSize: 12),
-        ),
+
         const SizedBox(height: 3),
         Text(
           '\$${currentItem.itemsPrice ?? 0}',

@@ -64,7 +64,10 @@ class Login extends StatelessWidget {
                       onTap: controllerBuilder.togglePasswordVisibility,
                     ),
                     const SizedBox(height: 13),
-                    _buildForgotPasswordButton(controllerBuilder),
+                    _buildForgotPasswordButton(
+                      isArabic: sharedPrefLang == 'ar',
+                      onPressed: controllerBuilder.forgetpassword,
+                    ),
                     const SizedBox(height: 20),
                     _buildLoginButton(controllerBuilder),
                     const SizedBox(height: 19),
@@ -188,21 +191,23 @@ class Login extends StatelessWidget {
     );
   }
 
-  Widget _buildForgotPasswordButton(LoginControllerImp controller) {
-    return Row(
-      children: [
-        MaterialButton(
-          onPressed: controller.forgetpassword,
-          child: const Text(
-            '? Forget Password',
-            style: TextStyle(
-              fontSize: 13,
-              fontWeight: FontWeight.bold,
-              color: AppColors.primary,
-            ),
+  Widget _buildForgotPasswordButton({
+    required bool isArabic,
+    required VoidCallback onPressed,
+  }) {
+    return Align(
+      alignment: isArabic ? Alignment.centerRight : Alignment.centerLeft,
+      child: MaterialButton(
+        onPressed: onPressed,
+        child: Text(
+          '17'.tr,
+          style: const TextStyle(
+            fontSize: 13,
+            fontWeight: FontWeight.bold,
+            color: AppColors.primary,
           ),
         ),
-      ],
+      ),
     );
   }
 

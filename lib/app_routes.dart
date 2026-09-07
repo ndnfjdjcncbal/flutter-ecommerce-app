@@ -62,8 +62,8 @@ List<GetPage<dynamic>>? routes = [
   GetPage(
     name: "/editProfile",
     page: () => EditProfilePage(),
-    transition: Transition.rightToLeftWithFade,
-    transitionDuration: const Duration(milliseconds: 350),
+    transition: Transition.rightToLeft,
+    transitionDuration: const Duration(milliseconds: 500),
     curve: Curves.easeOutCubic,
   ),
 ];

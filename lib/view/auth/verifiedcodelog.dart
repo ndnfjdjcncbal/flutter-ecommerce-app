@@ -58,11 +58,11 @@ class Verfiedcodelogin extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 19),
-          Center(child: Bone.text(words: 3, width: 130)),
+          Center(child: Bone.text(width: 130)),
           const SizedBox(height: 10),
-          Center(child: Bone.text(words: 6, width: 250)),
+          Center(child: Bone.text(width: 250)),
           const SizedBox(height: 9),
-          Center(child: Bone.text(words: 1, width: 170)),
+          Center(child: Bone.text(width: 170)),
           const SizedBox(height: 16),
           Bone(
             width: double.infinity,
@@ -72,7 +72,7 @@ class Verfiedcodelogin extends StatelessWidget {
           const SizedBox(height: 50),
           Bone(width: 180, height: 50, borderRadius: BorderRadius.circular(30)),
           const SizedBox(height: 10),
-          Center(child: Bone.text(words: 4, width: 180)),
+          Center(child: Bone.text(width: 180)),
         ],
       ),
     );

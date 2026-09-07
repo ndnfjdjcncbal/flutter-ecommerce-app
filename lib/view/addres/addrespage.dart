@@ -224,9 +224,18 @@ class _AddressListItem extends StatelessWidget {
                         : Colors.grey.shade200,
                     width: 2.5,
                   ),
-                  image: DecorationImage(
-                    image: NetworkImage(imageUrl),
+                ),
+                child: ClipOval(
+                  child: Image.asset(
+                    imageUrl,
+                    width: 75,
+                    height: 75,
                     fit: BoxFit.cover,
+                    errorBuilder: (context, error, stackTrace) => const Icon(
+                      Icons.location_on_outlined,
+                      color: AppColors.primary,
+                      size: 32,
+                    ),
                   ),
                 ),
               ),

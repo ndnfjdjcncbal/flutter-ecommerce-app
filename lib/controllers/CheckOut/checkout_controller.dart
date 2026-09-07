@@ -51,7 +51,7 @@ class ViewproductandaddrseController extends GetxController {
   StatusRequest statusRequestlatestnumber = StatusRequest.none;
 
   Myservice myServices = Get.find();
-  Set<cardmodel> seenFingerprints = {};
+  List<cardmodel> seenFingerprints = [];
   int selectedIndex = -1;
   addresmodel? selected;
   @override
@@ -293,18 +293,23 @@ class ViewproductandaddrseController extends GetxController {
       );
       print(response);
 
-      final rawCards = response is Map ? response['card'] : null;
-      final List<dynamic> cards = rawCards is List ? rawCards : const [];
-
-      seenFingerprints.clear();
+      final rawcards = response is Map ? response['card'] : null;
+      final List<dynamic> cards = rawcards is List ? rawcards : const [];
 
       if (response['status'] == "success") {
         statusRequestlatestnumber = StatusRequest.success;
 
         if (cards.isNotEmpty) {
-          seenFingerprints.addAll(
-            cards.map((card) => cardmodel.fromJson(card)).toSet(),
-          );
+          for (var card = 0; card < cards.length; card++) {
+            dynamic fingirprints = cards[card]['fingerprint'];
+
+            if (Uniquecard.contains(fingirprints)) {
+              continue;
+            } else {
+              Uniquecard.add(fingirprints);
+              seenFingerprints.add(cardmodel.fromJson(cards[card]));
+            }
+          }
         }
       } else {
         statusRequestlatestnumber = StatusRequest.offlinefailure;

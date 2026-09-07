@@ -129,7 +129,10 @@ flutter:
     - assets/visa.png
     - assets/card.png
     - assets/OrderSuccessfully.png
-
+    - assets/map1.png
+    - assets/map2.png
+    - assets/map3.png
+    - assets/map2.png
   #   - images/a_dot_ham.jpeg
 
   # An image assets can refer to one or more resolution-specific "variants", see

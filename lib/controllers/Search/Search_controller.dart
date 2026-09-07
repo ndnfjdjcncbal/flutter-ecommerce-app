@@ -189,7 +189,13 @@ class SearchControllerimp extends SearchController {
         itemssearches.addAll(response['alldata']);
 
         Mostpopular.clear();
-        Mostpopular.addAll(response['datapop']);
+        final popularIds = <String>{};
+        Mostpopular.addAll(
+          (response['datapop'] as List).where((item) {
+            final itemId = item['items_id']?.toString();
+            return itemId != null && popularIds.add(itemId);
+          }),
+        );
 
         cheapestdata.clear();
         cheapestdata.addAll(response['Cheapestdata']);

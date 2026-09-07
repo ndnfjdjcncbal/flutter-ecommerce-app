@@ -250,10 +250,6 @@ class ProfileControllerImpl extends ProfileController {
   @override
   void saveProfile() async {
     try {
-      fullNameError.value = '';
-      emailError.value = '';
-      phoneError.value = '';
-
       validateFullName(fullNameController.text);
       validateEmail(emailController.text);
       validatePhone(phoneController.text);
@@ -306,10 +302,6 @@ class ProfileControllerImpl extends ProfileController {
   @override
   void changePassword() async {
     try {
-      currentPasswordError.value = '';
-      newPasswordError.value = '';
-      confirmPasswordError.value = '';
-
       validateCurrentPassword(currentPasswordController.text);
       validateNewPassword(newPasswordController.text);
       validateConfirmPassword(confirmPasswordController.text);

@@ -116,7 +116,6 @@ class mostpopular extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          Text('64'.tr, style: const TextStyle(color: Colors.grey)),
           Text(
             '\$${currentItem.itemsPrice}',
             style: const TextStyle(

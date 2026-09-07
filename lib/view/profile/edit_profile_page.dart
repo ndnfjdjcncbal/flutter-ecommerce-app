@@ -47,33 +47,28 @@ class EditProfilePage extends StatelessWidget {
                     child: Stack(
                       alignment: Alignment.bottomRight,
                       children: [
-                        Hero(
-                          tag: 'profile-avatar',
-                          child: CircleAvatar(
-                            radius: 42,
-                            backgroundColor: const Color(0xFFE8F0FF),
-                            backgroundImage:
-                                controller.profileImageUrl.value.isNotEmpty
-                                ? (controller.profileImageUrl.value.startsWith(
-                                        'http',
+                        CircleAvatar(
+                          radius: 42,
+                          backgroundColor: const Color(0xFFE8F0FF),
+                          backgroundImage:
+                              controller.profileImageUrl.value.isNotEmpty
+                              ? (controller.profileImageUrl.value.startsWith(
+                                      'http',
+                                    )
+                                    ? NetworkImage(
+                                        controller.profileImageUrl.value,
                                       )
-                                      ? NetworkImage(
-                                          controller.profileImageUrl.value,
-                                        )
-                                      : FileImage(
-                                          File(
-                                            controller.profileImageUrl.value,
-                                          ),
-                                        ))
-                                : null,
-                            child: controller.profileImageUrl.value.isEmpty
-                                ? const Icon(
-                                    Icons.person,
-                                    size: 42,
-                                    color: AppColors.primary,
-                                  )
-                                : null,
-                          ),
+                                    : FileImage(
+                                        File(controller.profileImageUrl.value),
+                                      ))
+                              : null,
+                          child: controller.profileImageUrl.value.isEmpty
+                              ? const Icon(
+                                  Icons.person,
+                                  size: 42,
+                                  color: AppColors.primary,
+                                )
+                              : null,
                         ),
                         Container(
                           padding: const EdgeInsets.all(8),

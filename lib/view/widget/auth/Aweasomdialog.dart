@@ -1,6 +1,5 @@
-import 'dart:ui';
-
 import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../core/constants/colore.dart';
 
@@ -20,14 +19,26 @@ class WarningDialog {
   void show() {
     AwesomeDialog(
       context: Get.context!,
-      btnCancelColor: AppColors.primary,
+      dialogBackgroundColor: AppColors.white,
+      btnCancelColor: AppColors.grey,
       btnOkColor: AppColors.primary,
       dialogType: DialogType.warning,
       animType: AnimType.rightSlide,
       title: title,
       desc: desc,
+      titleTextStyle: const TextStyle(
+        color: AppColors.black,
+        fontSize: 20,
+        fontWeight: FontWeight.w700,
+      ),
+      descTextStyle: const TextStyle(
+        color: AppColors.grey,
+        fontSize: 14,
+        height: 1.4,
+      ),
+      buttonsBorderRadius: BorderRadius.circular(12),
       btnOkOnPress: onOkPressed,
       btnCancelOnPress: onCancelPressed,
-    )..show();
+    ).show();
   }
 }

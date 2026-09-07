@@ -102,9 +102,6 @@ class LoginControllerImp extends LoginController {
     }
 
     if (response['status'] == 'failure') {
-      statusRequest = StatusRequest.failure;
-      update();
-
       WarningDialog(
         title: 'Error',
         desc: 'username or password wrong',
@@ -113,7 +110,7 @@ class LoginControllerImp extends LoginController {
           update();
         },
         onCancelPressed: () {
-          Get.toNamed(approute.login);
+          Get.offAllNamed(approute.login);
           update();
         },
       ).show();
@@ -172,7 +169,6 @@ class LoginControllerImp extends LoginController {
             }
 
             if (response['status'] == 'faluire') {
-              statusRequest = StatusRequest.failure;
               update();
 
               WarningDialog(

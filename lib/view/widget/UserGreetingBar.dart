@@ -11,6 +11,8 @@ import 'package:get/get_core/src/get_main.dart';
 class Usergreetingbar extends StatelessWidget {
   const Usergreetingbar({super.key});
 
+  static const profileAvatarHeroTag = 'profile-avatar';
+
   @override
   Widget build(BuildContext context) {
     final controller = Get.isRegistered<ProfileControllerImpl>()
@@ -25,24 +27,21 @@ class Usergreetingbar extends StatelessWidget {
           child: GestureDetector(
             onTap: () => Get.toNamed(approute.editProfile),
             child: Obx(
-              () => Hero(
-                tag: 'profile-avatar',
-                child: CircleAvatar(
-                  radius: 35,
-                  backgroundColor: const Color(0xFFE8F0FF),
-                  backgroundImage: controller.profileImageUrl.value.isNotEmpty
-                      ? (controller.profileImageUrl.value.startsWith('http')
-                            ? NetworkImage(controller.profileImageUrl.value)
-                            : FileImage(File(controller.profileImageUrl.value)))
-                      : null,
-                  child: controller.profileImageUrl.value.isEmpty
-                      ? const Icon(
-                          Icons.person,
-                          size: 30,
-                          color: Color(0xFF2563EB),
-                        )
-                      : null,
-                ),
+              () => CircleAvatar(
+                radius: 35,
+                backgroundColor: const Color(0xFFE8F0FF),
+                backgroundImage: controller.profileImageUrl.value.isNotEmpty
+                    ? (controller.profileImageUrl.value.startsWith('http')
+                          ? NetworkImage(controller.profileImageUrl.value)
+                          : FileImage(File(controller.profileImageUrl.value)))
+                    : null,
+                child: controller.profileImageUrl.value.isEmpty
+                    ? const Icon(
+                        Icons.person,
+                        size: 30,
+                        color: Color(0xFF2563EB),
+                      )
+                    : null,
               ),
             ),
           ),
