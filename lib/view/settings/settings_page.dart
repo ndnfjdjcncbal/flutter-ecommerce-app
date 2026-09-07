@@ -1,6 +1,6 @@
-import 'package:ecommerce/core/constants/colore.dart';
+import 'package:ecommerce/core/constants/App_color/colore.dart';
 import 'package:ecommerce/core/localization/changelocal.dart';
-import 'package:ecommerce/view/approute.dart';
+import 'package:ecommerce/core/constants/app_links/app_route.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

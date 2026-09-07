@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../controllers/Search/Search_controller.dart';
-import '../../core/constants/colore.dart';
+import '../../core/constants/App_color/colore.dart';
 import 'package:ecommerce/core/constants/app_links/linkapi.dart';
-import '../approute.dart';
+import '../../core/constants/app_links/app_route.dart';
 import 'search_loading_grid.dart';
 
 class Allsearch extends StatelessWidget {

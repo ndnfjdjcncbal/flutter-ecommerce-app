@@ -1,5 +1,5 @@
 import 'package:ecommerce/core/constants/app_links/linkapi.dart';
-import 'package:ecommerce/core/constants/colore.dart';
+import 'package:ecommerce/core/constants/App_color/colore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

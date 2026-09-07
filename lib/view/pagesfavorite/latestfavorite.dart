@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 import '../../core/classes/handlingdataview.dart';
 import '../../controllers/Cart/favoritecontroler.dart';
-import '../approute.dart';
+import '../../core/constants/app_links/app_route.dart';
 
 class LatestFavorite extends StatelessWidget {
   const LatestFavorite({super.key});

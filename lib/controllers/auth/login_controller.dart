@@ -3,7 +3,7 @@ import 'package:ecommerce/core/classes/statusrequest.dart';
 import 'package:ecommerce/core/services/Mysevice.dart';
 import 'package:ecommerce/data/data_sources/auth/forgetpass/forgetpassword.dart';
 import 'package:ecommerce/data/data_sources/auth/login.dart';
-import 'package:ecommerce/view/approute.dart';
+import 'package:ecommerce/core/constants/app_links/app_route.dart';
 import 'package:ecommerce/view/widget/auth/Aweasomdialog.dart';
 import 'package:ecommerce/view/widget/auth/widgetforgetpassword.dart';
 import 'package:firebase_auth/firebase_auth.dart'

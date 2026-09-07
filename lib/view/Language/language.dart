@@ -1,9 +1,9 @@
-import 'package:ecommerce/core/constants/colore.dart';
-import 'package:ecommerce/view/approute.dart';
+import 'package:ecommerce/core/constants/App_color/colore.dart';
+import 'package:ecommerce/core/constants/app_links/app_route.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../core/localization/changelocal.dart';
+import '../../core/localization/changelocal.dart';
 
 class Language1 extends StatelessWidget {
   const Language1({super.key});

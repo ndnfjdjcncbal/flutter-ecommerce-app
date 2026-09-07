@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 
 import '../../core/classes/statusrequest.dart';
 
-import '../../view/approute.dart';
+import '../../core/constants/app_links/app_route.dart';
 
 abstract class AddressController extends GetxController {
   void selectAddress(int index);

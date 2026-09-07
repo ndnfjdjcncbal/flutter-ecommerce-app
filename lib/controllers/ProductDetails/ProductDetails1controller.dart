@@ -4,13 +4,13 @@ import 'package:ecommerce/data/models/cartmodel.dart';
 import 'package:ecommerce/data/models/favorite/allfavorite.dart';
 import 'package:ecommerce/data/models/getitems_model/getitems.dart';
 import 'package:ecommerce/data/models/itemscolormodel.dart';
-import 'package:ecommerce/view/approute.dart';
+import 'package:ecommerce/core/constants/app_links/app_route.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../core/classes/crud.dart';
 import '../../core/classes/statusrequest.dart';
-import '../../core/constants/colore.dart';
+import '../../core/constants/App_color/colore.dart';
 
 abstract class ProductDetailsController extends GetxController {
   Future<void> viewcoloritem(String item);

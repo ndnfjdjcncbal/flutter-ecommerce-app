@@ -1,7 +1,7 @@
 import 'package:ecommerce/controllers/bottomnavigation/BottomNavigation_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../approute.dart';
+import '../../core/constants/app_links/app_route.dart';
 
 class Myorder extends StatelessWidget {
   Myorder({super.key});

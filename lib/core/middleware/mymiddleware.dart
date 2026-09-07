@@ -4,7 +4,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/src/extension_instance.dart';
 import 'package:get/get_navigation/src/routes/route_middleware.dart';
 
-import '../../view/approute.dart';
+import '../constants/app_links/app_route.dart';
 
 class MyMiddleWare extends GetMiddleware {
   @override

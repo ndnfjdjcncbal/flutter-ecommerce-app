@@ -1,5 +1,5 @@
 import 'package:ecommerce/core/services/Mysevice.dart';
-import 'package:ecommerce/view/approute.dart';
+import 'package:ecommerce/core/constants/app_links/app_route.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 

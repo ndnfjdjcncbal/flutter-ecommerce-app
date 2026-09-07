@@ -10,7 +10,6 @@ import 'package:ecommerce/view/HomeScreen/CategoryWidget.dart';
 import 'package:ecommerce/view/HomeScreen/HomeWidget.dart';
 import 'package:ecommerce/view/addres/addrespage.dart';
 import 'package:ecommerce/view/addres/addrespage2.dart';
-import 'package:ecommerce/view/allitems.dart';
 import 'package:ecommerce/view/bottom_navigation/favorite.dart';
 import 'package:ecommerce/view/bottom_navigation/homepages.dart';
 import 'package:ecommerce/view/bottom_navigation/myorder.dart';
@@ -18,7 +17,7 @@ import 'package:ecommerce/view/bottom_navigation/profile.dart';
 import 'package:ecommerce/view/cart/Cart.dart';
 import 'package:ecommerce/view/checkout/checkout.dart';
 import 'package:ecommerce/view/getitems_forCategory/getitems_forCategory.dart';
-import 'package:ecommerce/view/language.dart';
+import 'package:ecommerce/view/Language/language.dart';
 import 'package:ecommerce/view/productdetails/ProductDetails1.dart';
 import 'package:ecommerce/view/settings/settings_page.dart';
 import 'package:ecommerce/view/widget/map_screen.dart';
@@ -54,7 +53,6 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: "/AddressPage", page: () => AddressPage()),
   GetPage(name: "/AddressPage2", page: () => AddressPage2()),
   GetPage(name: "/PaymentPage", page: () => PaymentPage()),
-  GetPage(name: "/allitems", page: () => allitems()),
   GetPage(name: "/getitems_forCategory", page: () => GetitemsForCategory()),
   GetPage(name: "/Notifications", page: () => Notifications()),
   GetPage(name: "/SettingsPage", page: () => SettingsPage()),

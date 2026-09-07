@@ -6,7 +6,7 @@ import 'package:ecommerce/data/data_sources/favorite/favorite.dart';
 import 'package:ecommerce/data/data_sources/home/getdata.dart';
 import 'package:ecommerce/data/models/Search/Searchistory.dart';
 import 'package:ecommerce/data/models/banner.dart';
-import 'package:ecommerce/view/approute.dart';
+import 'package:ecommerce/core/constants/app_links/app_route.dart';
 import 'package:ecommerce/view/bottom_navigation/favorite.dart';
 import 'package:ecommerce/view/bottom_navigation/myorder.dart';
 import 'package:ecommerce/view/bottom_navigation/profile.dart';

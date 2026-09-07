@@ -1,4 +1,4 @@
-import 'package:ecommerce/view/approute.dart';
+import 'package:ecommerce/core/constants/app_links/app_route.dart';
 import 'package:ecommerce/view/widget/widgetpopularsearch.dart';
 import 'package:ecommerce/view/widget/widgetseacrh.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +8,7 @@ import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:get/get_state_manager/src/simple/get_state.dart';
 import '../../controllers/Search/Search_controller.dart';
 import '../../core/classes/handlingdataview.dart';
-import '../../core/constants/colore.dart';
+import '../../core/constants/App_color/colore.dart';
 import 'materialbutton.dart';
 
 class SearchPage extends StatelessWidget {

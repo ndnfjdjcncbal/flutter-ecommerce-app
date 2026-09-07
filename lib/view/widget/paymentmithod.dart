@@ -1,4 +1,4 @@
-import 'package:ecommerce/core/constants/colore.dart';
+import 'package:ecommerce/core/constants/App_color/colore.dart';
 import 'package:flutter/material.dart';
 
 class PaymentMethodSheet extends StatelessWidget {

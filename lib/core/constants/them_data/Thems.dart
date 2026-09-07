@@ -1,6 +1,5 @@
+import 'package:ecommerce/core/constants/App_color/colore.dart';
 import 'package:flutter/material.dart';
-
-import '../core/constants/colore.dart';
 
 ThemeData themeEnglish = ThemeData(
   fontFamily: "PlayfairDisplay",

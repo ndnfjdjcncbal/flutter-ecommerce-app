@@ -1,7 +1,7 @@
 import 'package:ecommerce/core/classes/crud.dart';
 import 'package:ecommerce/core/services/Mysevice.dart';
 import 'package:ecommerce/data/data_sources/address/addres.dart';
-import 'package:ecommerce/view/approute.dart';
+import 'package:ecommerce/core/constants/app_links/app_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
